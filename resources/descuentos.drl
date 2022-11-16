@@ -1,0 +1,29 @@
+//created on: 19 oct. 2022
+package co.rules.descuento
+
+//list any import classes here.
+
+import ar.edu.unlam.pb2.modelo.Persona;
+
+//declare any global variables here
+
+
+
+
+rule "Descuento Buenos Aires edad entre 18 y 25 años"
+
+    when
+        $p : Persona( ciudad == "Buenos Aires" , edad  >= 18 , edad <= 25)
+    then
+        $p.setDescuento(0.25);
+
+end
+
+rule "Descuento Entre Rios mayor a 65 años"
+    
+    when
+        $p : Persona (ciudad == "Entre Rios" , edad > 65)
+    then
+        $p.setDescuento(0.50);
+
+end
